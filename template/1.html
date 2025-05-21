@@ -2,7 +2,15 @@
 
 
 
-{%block one%}
+{% block one %}
  <h1>hello world</h1>
 <h1>w3schools</h1>
+
+<ul>
+    {% for messagggg in w3school_list %}
+
+         <li>{{messagggg.text}}</li>
+
+    {% endfor %}
+</ul>
 {%endblock one%}

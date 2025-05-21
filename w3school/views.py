@@ -1,8 +1,12 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
+# from django.shortcuts import render
+# from django.views.generic import TemplateView
+from django.views.generic import ListView
+from .models import w3school
 
 
-class messageview (TemplateView):
-    template_name ='1.html'
-
+class messageview (ListView):
+    model = w3school
+    template_name = '1.html'
+# class messageview (TemplateView):
+#     template_name ='1.html'
 # Create your views here.
