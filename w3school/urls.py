@@ -1,8 +1,9 @@
-# from django.views.generic import ListView
-# from .models import w3school  # Import your model
+# from django.urls import path
+# from .views import messageview
+# from config.urls import urlpatterns
 #
-# class MessageView(ListView):
-#     template_name = 'home.html'
-#     model = w3school
-#     context_object_name = 'messages'
-#     ordering = ['-timestamp']  # Example ordering
+#
+#
+# urlpatterns=[
+#     path('', messageview.as_view(), name='message'),
+# ]
