@@ -54,7 +54,7 @@
           <li><a href="{% url 'home' %}">home</a></li>
           {%if user.is_authenticated %}
 <!--            <li><a href="{% url 'logout' %}">logout</a></li>-->
-          <form action="{% url 'logout' %}" method="GET">
+          <form action="{% url 'logout' %}" method="post">
               {% csrf_token %}
                   <button type="submit">Logout</button>
           </form>
