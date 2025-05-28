@@ -42,7 +42,13 @@ INSTALLED_APPS = [
     "w3school",
     "post",
     "accounts",
+#     third party
+    "crispy_forms",
+    "crispy_bootstrap4",
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 AUTH_USER_MODEL = 'accounts.CustomUser'
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
