@@ -22,4 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # path("post/",include('w3school.urls')),
     path("",include('post.urls')),
+    path("account/",include('django.contrib.auth.urls')),
 ]
