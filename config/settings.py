@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
-from django.conf.global_settings import STATICFILES_DIRS
+from django.conf.global_settings import STATICFILES_DIRS, LOGIN_REDIRECT_URL, LOGOUT_REDIRECT_URL, AUTH_USER_MODEL, \
+    EMAIL_BACKEND
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,8 +42,15 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "w3school",
     "post",
+    "accounts",
+#     third party
+    "crispy_forms",
+    "crispy_bootstrap4",
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+AUTH_USER_MODEL = 'accounts.CustomUser'
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -58,7 +66,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR/ 'template'],
+        "DIRS": [BASE_DIR/ 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -125,4 +133,7 @@ STATICFILES_DIRS=[BASE_DIR/"static"]
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
