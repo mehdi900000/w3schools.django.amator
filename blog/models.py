@@ -1,0 +1,17 @@
+from datetime import date
+
+from crispy_forms.templatetags.crispy_forms_field import classes
+from django.db import models
+
+# Create your models here.
+class Post(models.Model):
+    title=models.CharField(max_length=255)
+    excerpt=models.TextField()
+    body=models.TextField()
+    author=models.ForeignKey('accounts.CustomUser', on_delete=models.CASCADE)
+    date=models.DateField(default=date.today)
+    photo=models.ImageField(upload_to='photo/%Y/%m/%d')
+
+
+    def __str__(self):
+        return self.title

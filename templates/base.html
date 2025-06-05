@@ -52,9 +52,10 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{% url 'home' %}">home</a></li>
+
           {%if request.user.is_authenticated %}
 <!--li><a href="{% url 'logout' %}" >logout</a></li>-->
-
+                <li><a href="{%url 'newpost'%}">+creat new post</a></li>
                 <li class="dropdown"><a href="#">{{user.username}}<span><i class="bi bi-chevron-down"></i></span></a>
                   <ul>
                       <li>
