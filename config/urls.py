@@ -23,3 +23,4 @@ urlpatterns = [
     # path("post/",include('w3school.urls')),
     path("",include('post.urls')),
 ]
+

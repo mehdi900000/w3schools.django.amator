@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+    <h1>post details</h1>
+    <h2><a href="{{ post.get_absolute_url }}">subject : {{post.subject}}</a></h2>
+    <p>text : {{post.text}}</p>
+    <p>author : {{post.author}}</p>
+    <p>body : {{post.body}}</p>
+    <h3><a href="{%url 'update' post.pk %}"> + EDIT</a> . . . . . . <a href="{%url 'delete' post.pk %}">-DELETE</a></h3>
+
+</div>
+
+{% endblock %}
