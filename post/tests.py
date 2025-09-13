@@ -44,6 +44,22 @@ class PostTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Post.objects.last().subject, 'new subject')
         self.assertEqual(Post.objects.last().text,'new text')
+    def test_post_updateview(self):
+        response = self.client.post(
+          reverse('update', args=[self.post.pk]),
+         {
+            'subject': 'update subject',
+            'text': 'update text',
+            'body': 'update body',
+          }
+          )
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Post.objects.last().subject, 'update subject')
+        self.assertEqual(Post.objects.last().text, 'update text')
+    def test_post_deleteview(self):
+        response=self.client.post(reverse('delete',args='1'))    
+        self.assertEqual(response.status_code, 302)
+
 
 
 

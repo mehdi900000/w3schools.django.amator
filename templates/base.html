@@ -120,6 +120,31 @@
 
 
     <footer id="footer" class="footer dark-background">
+        <div>
+            <br>
+            <br>
+            <br>
+            <br>
+            {% if user.is_authenticated %}
+            <h3>Your wellcome {{user.username}}!</h3>
+            <form action="{%url 'logout'%}" method="post">
+                {% csrf_token %}
+                <button type="submit">logout</button>
+            </form>
+
+            {% else %}
+            <a href="{%url 'login'%}" class="btn btn-outline-light mx-2">
+                <h3>login</h3>
+            </a>
+            <form action="{% url 'signup'%}" method="post">
+                {% csrf_token %}
+                <button type="submit">
+                    <h3>signup</h3>
+                </button>
+            </form>
+
+            {% endif %}
+        </div>
         {% block content %}
 
         {% endblock content %}

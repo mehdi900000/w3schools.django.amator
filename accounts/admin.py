@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .forms import CustoumUserCreationForm,CustoumUserChangeForm
+from .forms import CustomUserCreationForm,CustomUserChangeForm
 from .models import CustomUser
 # Register your models here.
-class CustoumUserAdmin(UserAdmin):
-    add_form = CustoumUserCreationForm
-    form = CustoumUserChangeForm
+class CustomUserAdmin(UserAdmin):
+    add_form = CustomUserCreationForm
+    form = CustomUserChangeForm
     model=CustomUser
     list_display = [
         'email',
@@ -17,4 +17,4 @@ class CustoumUserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets+((None,{"fields":('age',)}),)
     add_fieldsets = UserAdmin.add_fieldsets+((None,{"fields":('age',)}),)
 
-admin.site.register(CustomUser, CustoumUserAdmin)
+admin.site.register(CustomUser, CustomUserAdmin)

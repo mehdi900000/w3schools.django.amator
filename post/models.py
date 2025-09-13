@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.conf import settings
 from django.urls import reverse
@@ -6,6 +6,7 @@ from django.urls import reverse
 
 
 class Post(models.Model):
+    # user= get_user_model()
     subject = models.CharField(max_length=200)
     text = models.CharField(max_length=200)
     author = models.ForeignKey(

@@ -19,7 +19,7 @@ class PostDetail(DetailView):
     context_object_name = 'post'
 class PostUpdate(UpdateView):
     model=Post
-    fields=['text','body']
+    fields=['subject','text','body']
     template_name='post/post_update.html'
 
 class PostDelete(DeleteView):
