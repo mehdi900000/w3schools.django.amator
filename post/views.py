@@ -15,8 +15,8 @@ class PostListView(ListView):
 
 class PostDetail(DetailView):
     model = Post
-    template_name = 'post/post_detail.html'
-    context_object_name = 'post'
+    template_name = 'post_detail.html'
+    # context_object_name = 'post'
 class PostUpdate(UpdateView):
     model=Post
     fields=['subject','text','body']

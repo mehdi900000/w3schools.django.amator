@@ -10,18 +10,23 @@
             <br>
             <br>
             <br>
-            {% for post in post_list %}
-            <div style="display: flex; align-items: center;">
-                <h2 style="margin-right: 10px;">subject :<a href="{%url 'detail' post.pk %}">{{post.subject}}</a></h2>
+            {% if user.is_authenticated %}
+                {% for post in object_list %}
+                <div style="display: flex; align-items: center;">
+                    <h2 style="margin-right: 10px;">subject :<a href="{%url 'detail' post.pk %}">{{post.subject}}</a></h2>
 
-            </div>
-            <div style="display: flex; align-items: center;">
-                <h4 style="margin-right: 10px;">author : </h4>
-                <p>{{post.author}}</p>
-            </div>
-            <hr>
-            {% endfor %}
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <h4 style="margin-right: 10px;">author : </h4>
+                    <p>{{post.author}}</p>
+                </div>
+                <hr>
+                {% endfor %}
+            {%else%}
+                <a href="{%url 'login'%}">login</a>
+            {%endif%}
         </div>
+
     </section><!-- /Blog Posts Section -->
 
     <!-- Blog Pagination Section -->
